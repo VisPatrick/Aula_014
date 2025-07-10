@@ -12,10 +12,16 @@ try:
     print('\nIniciando a leitura do arquivo Parquet...')
     inicio = datetime.now()
 
-    df_bolsa_familia = pl.read_parquet(ENDERECO_ARQUIVO + 'bolsa_familia.parquet')
-    print(df_bolsa_familia.head())
+    # pandas
     # df_bolsa_familia = pd.read_parquet(ENDERECO_ARQUIVO + 'bolsa_familia.parquet')
     # print(df_bolsa_familia.head())
+
+    # polars
+    df_bolsa_familia = pl.read_parquet(ENDERECO_ARQUIVO + 'bolsa_familia.parquet')
+    print(df_bolsa_familia.head())
+
+    print(df_bolsa_familia.columns)  # Exibe as colunas do DataFrame
+    print(df_bolsa_familia.dtypes)  # Exibe os tipos de dados das colunas
 
     fim = datetime.now()
     print(f'\nLeitura do arquivo Parquet concluída em {fim - inicio} segundos.')
